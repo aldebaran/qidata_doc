@@ -64,4 +64,5 @@ Contents
 
    install
    annotate
+   advanced
    context

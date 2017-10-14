@@ -63,3 +63,6 @@ Contents
    :numbered:
 
    install
+   annotate
+   advanced
+   context

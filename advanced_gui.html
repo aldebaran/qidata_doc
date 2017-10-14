@@ -1,0 +1,229 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Create a dataset from a ROSbag &#8212; QiData 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This section describes features that have been made specifically for
+Aldebaran’s needs. They might not all be fully usable for more general
+purposes, even though they aim to be, in the future.</p>
+</div>
+<div class="section" id="create-a-dataset-from-a-rosbag">
+<h1>Create a dataset from a ROSbag<a class="headerlink" href="#create-a-dataset-from-a-rosbag" title="Permalink to this headline">¶</a></h1>
+<p>Previously, we saw how to create a dataset from a folder, using the graphical
+interface. However, there is another option, which is to extract data from a
+ROSbag file.</p>
+<p>If you have no idea what a ROSbag is, then you can probably skip this section.
+Just know that ROSbags are a sort of archive files in which data is organized in
+different structures and dated.</p>
+<p>If you are interested, you can have a look here. After that, I will assume you
+are familiar with ROS and its vocabulary.</p>
+<p><a class="reference external" href="http://wiki.ros.org/">http://wiki.ros.org/</a></p>
+<p><a class="reference external" href="http://wiki.ros.org/rosbag">http://wiki.ros.org/rosbag</a></p>
+<p>To create a QiDataSet from a ROSbag, you need to have a ROS workspace sourced to
+begin with. Then you can run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">qidata</span> <span class="n">extract</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">bag</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">For now, the bag MUST have a /tf topic to be extracted. /tf is not shown in
+the topic list, but it is always used to compute the sensor position when
+the camera</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Only bags recorded from an SBRE robot with <a class="reference external" href="https://github.com/ros-naoqi/naoqi_driver">naoqi_driver</a> can actually be extracted.</p>
+</div>
+<p>You should then see something like this:</p>
+<img alt="_images/6-extract_from_bag.png" src="_images/6-extract_from_bag.png" />
+<p>The right-panel should remind you something. It is the future context of the
+dataset. Thanks to the information already contained by the ROSbag, the
+timestamp-related information are already filled when the bag is opened. The
+rest is up to you!</p>
+<p>On the left panel, you can select which topic you want to record. To extract
+data from a topic, you need to give it a name in the second column. An empty
+space means the topic will not be extracted.</p>
+<p>You can then select the type of data it is (very useful to specify if the images
+are 2D, 3D, or stereo). Finally, the last two columns are here to specify a
+calibration file if the selected data is an image (if not, it is ignored). The
+second file is only used if the type is “IMAGE_STEREO”.</p>
+<p>The file used for calibration must have a certain format. Once again, this is
+due to the way Nao and Pepper store their camera calibrations.</p>
+<img alt="_images/7-calibration_file.png" src="_images/7-calibration_file.png" />
+</div>
+<div class="section" id="streams-and-frames">
+<h1>Streams and frames<a class="headerlink" href="#streams-and-frames" title="Permalink to this headline">¶</a></h1>
+<p>The point of a dataset is to be used as an input for an algorithm. Depending on
+the algorithm and the way it works, the dataset will be different. We can
+separate the different types of datasets along two axis:</p>
+<ul class="simple">
+<li>Mono-modal VS multi-modal</li>
+<li>Unrelated frames VS Data streams</li>
+</ul>
+<p>The first category is only a question of how many different data types the
+dataset offers. The second, however, is about the dependency of the different
+items towards time.</p>
+<p>This topic will be more explained in the following pages of the documentation,
+but for now, it can be summarized like this:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="52%" />
+<col width="30%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&#160;</th>
+<th class="head">Unrelated frames</th>
+<th class="head">Data streams</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Mono-modal</td>
+<td>Single type of files</td>
+<td>One data stream</td>
+</tr>
+<tr class="row-odd"><td>Multi-modal</td>
+<td>Several type of files + QiDataFrames</td>
+<td>Several data streams</td>
+</tr>
+</tbody>
+</table>
+<p>A “frame” describes a list of files that must be given together to a relevant
+algorithm.
+A “stream” is a mapping between a timestamp and a file and describe when a
+specific file must be given to an algorithm.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Be aware that frames and streams are totally different. Frames gather files
+of different type, whereas streams gather files of the same type but with
+different datetime of occurence. However, as it is possible to obtain frames
+from the definition of several streams, it is never possible to define
+frames if streams are defined.</p>
+</div>
+<div class="section" id="defining-frames">
+<h2>Defining frames<a class="headerlink" href="#defining-frames" title="Permalink to this headline">¶</a></h2>
+<p>So you might be wondering how to define frames. Well that’s simple. You can
+create a frame by opening a dataset and then clicking the “+” button (number 4
+on the image in the previous page). You will then be able to select several
+files that will become the components of your frame, which will appear in the
+frame section. That’s it</p>
+</div>
+<div class="section" id="defining-streams">
+<h2>Defining streams<a class="headerlink" href="#defining-streams" title="Permalink to this headline">¶</a></h2>
+<p>And to define streams ? Well, you can’t. Streams represent flows of data, such
+flows that usually come from a recording device. As a result, it seems useless
+for a human to be able to define manually some data streams. Those streams
+should be defined solely by the recording program.</p>
+<p>For instance, streams are created out of ROS topics when creating a QiDataSet
+out of a ROSbag.</p>
+</div>
+<div class="section" id="visualizing-streams">
+<h2>Visualizing streams<a class="headerlink" href="#visualizing-streams" title="Permalink to this headline">¶</a></h2>
+<p>When frames are defined, they can be seen in the “Frames defined” area. What
+about streams ?</p>
+<p>Well if streams are defined, the window is actually a little bit different. A
+new widget can be seen that shows on a timeline <em>when</em> your files are located.
+You can then click anywhere, and the most recent file will be opened for you
+to annotate it.</p>
+<img alt="_images/8-dataset_with_streams.png" src="_images/8-dataset_with_streams.png" />
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">QiData</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annotate.html">2. Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">3. Advanced usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="context.html">4. APPENDIX A: Context documentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Softbank Robotics Europe.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/advanced_gui.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

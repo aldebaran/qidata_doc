@@ -1,0 +1,675 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>4. APPENDIX A: Context documentation &#8212; QiData 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="3. Advanced usage" href="advanced.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="appendix-a-context-documentation">
+<span id="context-doc"></span><h1>4. APPENDIX A: Context documentation<a class="headerlink" href="#appendix-a-context-documentation" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="qidata.metadata_objects.context.Context">
+<em class="property">class </em><code class="descclassname">qidata.metadata_objects.context.</code><code class="descname">Context</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#qidata.metadata_objects.context.Context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Context (current version: 0.1):</p>
+<p>Description: Contains contextual details on the recording</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">recording_location</span></code></p>
+<blockquote>
+<div><p>Location where the data was recorded</p>
+<p>Default: <code class="xref py py-class docutils literal"><span class="pre">SpatialLocation</span></code></p>
+<blockquote>
+<div><p>├─ country: UNSPECIFIED</p>
+<p>├─ city: “”</p>
+<p>├─ latitude: None</p>
+<p>├─ longitude: None</p>
+<p>└─ tags: []</p>
+</div></blockquote>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">recording_datetime</span></code></p>
+<blockquote>
+<div><p>Datetime when the data was recorded</p>
+<p>Default: <code class="xref py py-class docutils literal"><span class="pre">TimeLocation</span></code></p>
+<blockquote>
+<div><p>├─ year: None</p>
+<p>├─ month: None</p>
+<p>├─ day: None</p>
+<p>├─ hour: None</p>
+<p>├─ starting_timestamp: None</p>
+<p>└─ length: None</p>
+</div></blockquote>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">recording_device</span></code></p>
+<blockquote>
+<div><p>Details on the device used to record</p>
+<p>Default: <code class="xref py py-class docutils literal"><span class="pre">RecordingDevice</span></code></p>
+<blockquote>
+<div><p>├─ device_model: UNSPECIFIED</p>
+<p>├─ device_id: “”</p>
+<p>└─ sw_version: “”</p>
+</div></blockquote>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">recorder_names</span></code></p>
+<blockquote>
+<div><p>Name of the persons handling the recording</p>
+<p>Default: <code class="docutils literal"><span class="pre">[]</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">environmental_description</span></code></p>
+<blockquote>
+<div><p>Description of the conditions of the recording</p>
+<p>Default: <code class="xref py py-class docutils literal"><span class="pre">EnvironmentalDescription</span></code></p>
+<blockquote>
+<div><p>├─ category: UNSPECIFIED</p>
+<p>├─ light_conditions:</p>
+<p>│  ├─ outdoor_light: UNSPECIFIED</p>
+<p>│  ├─ indoor_light: UNSPECIFIED</p>
+<p>│  └─ ambient_luminosity: None</p>
+<p>└─ sound_conditions:</p>
+<blockquote>
+<div><p>├─ ambient_sound_reverberation: None</p>
+<p>└─ ambient_sound_level: None</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">tags</span></code></p>
+<blockquote class="last">
+<div><p>Add some tags to describe your dataset.                           This could be used to sort datasets and also to organize                                test results. It is however always preferable to use the                                defined sections. Tags is only here to add information that                             does not fit in other attributes.</p>
+<p>Default: <code class="docutils literal"><span class="pre">[]</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="qidata.metadata_objects.context.SpatialLocation">
+<em class="property">class </em><code class="descclassname">qidata.metadata_objects.context.</code><code class="descname">SpatialLocation</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#qidata.metadata_objects.context.SpatialLocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>SpatialLocation (current version: 0.1):</p>
+<p>Description: Contains details about the device used to produce the data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">country</span></code></p>
+<blockquote>
+<div><p>Continent and country where the data was recorded</p>
+<p>Default: <code class="docutils literal"><span class="pre">UNSPECIFIED</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">city</span></code></p>
+<blockquote>
+<div><p>City where the data was recorded</p>
+<p>Default: <code class="docutils literal"><span class="pre">&quot;&quot;</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">latitude</span></code></p>
+<blockquote>
+<div><p>Recording’s location’s latitude</p>
+<p>Default: <code class="docutils literal"><span class="pre">None</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">longitude</span></code></p>
+<blockquote>
+<div><p>Recording’s location’s longitude</p>
+<p>Default: <code class="docutils literal"><span class="pre">None</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">tags</span></code></p>
+<blockquote class="last">
+<div><p>Add some tags to help sorting by location.                                It can be a room name for instance</p>
+<p>Default: <code class="docutils literal"><span class="pre">[]</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="qidata.metadata_objects.context.Country">
+<em class="property">class </em><code class="descclassname">qidata.metadata_objects.context.</code><code class="descname">Country</code><a class="headerlink" href="#qidata.metadata_objects.context.Country" title="Permalink to this definition">¶</a></dt>
+<dd><p>All countries are present but the list is not displayed here
+as it is a very long one</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="qidata.metadata_objects.context.TimeLocation">
+<em class="property">class </em><code class="descclassname">qidata.metadata_objects.context.</code><code class="descname">TimeLocation</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#qidata.metadata_objects.context.TimeLocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>TimeLocation (current version: 0.1):</p>
+<p>Description: Contains information on the date and time of the data acquisition</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">year</span></code></p>
+<blockquote>
+<div><p>Year of the recording</p>
+<p>Default: <code class="docutils literal"><span class="pre">None</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">month</span></code></p>
+<blockquote>
+<div><p>Month of the recording</p>
+<p>Default: <code class="docutils literal"><span class="pre">None</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">day</span></code></p>
+<blockquote>
+<div><p>Day of the recording</p>
+<p>Default: <code class="docutils literal"><span class="pre">None</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">hour</span></code></p>
+<blockquote>
+<div><p>Hour of the recording</p>
+<p>Default: <code class="docutils literal"><span class="pre">None</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">starting_timestamp</span></code></p>
+<blockquote>
+<div><p>Recording’s starting timestamp</p>
+<p>Default: <code class="docutils literal"><span class="pre">None</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">length</span></code></p>
+<blockquote class="last">
+<div><p>Recording’s duration (in seconds)</p>
+<p>Default: <code class="docutils literal"><span class="pre">None</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="qidata.metadata_objects.context.RecordingDevice">
+<em class="property">class </em><code class="descclassname">qidata.metadata_objects.context.</code><code class="descname">RecordingDevice</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#qidata.metadata_objects.context.RecordingDevice" title="Permalink to this definition">¶</a></dt>
+<dd><p>RecordingDevice (current version: 0.1):</p>
+<p>Description: Contains details about the device used to produce the data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">device_model</span></code></p>
+<blockquote>
+<div><p>Brand and model of the device used to record</p>
+<p>Default: <code class="docutils literal"><span class="pre">UNSPECIFIED</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">device_id</span></code></p>
+<blockquote>
+<div><p>Unique ID of the device used to record</p>
+<p>Default: <code class="docutils literal"><span class="pre">&quot;&quot;</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">sw_version</span></code></p>
+<blockquote class="last">
+<div><p>Version of the software embedded on the device                           (or any relevant SW) used to perform the recording</p>
+<p>Default: <code class="docutils literal"><span class="pre">&quot;&quot;</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="qidata.metadata_objects.context.DeviceModel">
+<em class="property">class </em><code class="descclassname">qidata.metadata_objects.context.</code><code class="descname">DeviceModel</code><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.PANASONIC__DMC_LX7">
+<code class="descname">PANASONIC__DMC_LX7</code><em class="property"> = 1</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.PANASONIC__DMC_LX7" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_H21_V32">
+<code class="descname">SOFTBANK_ROBOTICS__NAO_H21_V32</code><em class="property"> = 2</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_H21_V32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_H21_V33">
+<code class="descname">SOFTBANK_ROBOTICS__NAO_H21_V33</code><em class="property"> = 3</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_H21_V33" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_H21_V40">
+<code class="descname">SOFTBANK_ROBOTICS__NAO_H21_V40</code><em class="property"> = 4</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_H21_V40" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_H21_V50">
+<code class="descname">SOFTBANK_ROBOTICS__NAO_H21_V50</code><em class="property"> = 5</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_H21_V50" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_H25_V32">
+<code class="descname">SOFTBANK_ROBOTICS__NAO_H25_V32</code><em class="property"> = 6</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_H25_V32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_H25_V33">
+<code class="descname">SOFTBANK_ROBOTICS__NAO_H25_V33</code><em class="property"> = 7</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_H25_V33" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_H25_V40">
+<code class="descname">SOFTBANK_ROBOTICS__NAO_H25_V40</code><em class="property"> = 8</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_H25_V40" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_H25_V50">
+<code class="descname">SOFTBANK_ROBOTICS__NAO_H25_V50</code><em class="property"> = 9</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_H25_V50" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_T14_V32">
+<code class="descname">SOFTBANK_ROBOTICS__NAO_T14_V32</code><em class="property"> = 10</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_T14_V32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_T14_V33">
+<code class="descname">SOFTBANK_ROBOTICS__NAO_T14_V33</code><em class="property"> = 11</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_T14_V33" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_T14_V40">
+<code class="descname">SOFTBANK_ROBOTICS__NAO_T14_V40</code><em class="property"> = 12</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_T14_V40" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_T14_V50">
+<code class="descname">SOFTBANK_ROBOTICS__NAO_T14_V50</code><em class="property"> = 13</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_T14_V50" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_T2_V32">
+<code class="descname">SOFTBANK_ROBOTICS__NAO_T2_V32</code><em class="property"> = 14</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_T2_V32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_T2_V33">
+<code class="descname">SOFTBANK_ROBOTICS__NAO_T2_V33</code><em class="property"> = 15</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_T2_V33" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_T2_V40">
+<code class="descname">SOFTBANK_ROBOTICS__NAO_T2_V40</code><em class="property"> = 16</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_T2_V40" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_T2_V50">
+<code class="descname">SOFTBANK_ROBOTICS__NAO_T2_V50</code><em class="property"> = 17</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__NAO_T2_V50" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__PEPPER_V17">
+<code class="descname">SOFTBANK_ROBOTICS__PEPPER_V17</code><em class="property"> = 18</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__PEPPER_V17" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__PEPPER_V18">
+<code class="descname">SOFTBANK_ROBOTICS__PEPPER_V18</code><em class="property"> = 19</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.SOFTBANK_ROBOTICS__PEPPER_V18" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.DeviceModel.UNSPECIFIED">
+<code class="descname">UNSPECIFIED</code><em class="property"> = 20</em><a class="headerlink" href="#qidata.metadata_objects.context.DeviceModel.UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription">
+<em class="property">class </em><code class="descclassname">qidata.metadata_objects.context.</code><code class="descname">EnvironmentalDescription</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>EnvironmentalDescription (current version: 0.1):</p>
+<p>Description: Contains details about the environment</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">category</span></code></p>
+<blockquote>
+<div><p>Type of environment</p>
+<p>Default: <code class="docutils literal"><span class="pre">UNSPECIFIED</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">light_conditions</span></code></p>
+<blockquote>
+<div><p>Description of lighting conditions of the scene</p>
+<p>Default: <code class="xref py py-class docutils literal"><span class="pre">EnvironmentalLightConditions</span></code></p>
+<blockquote>
+<div><p>├─ outdoor_light: UNSPECIFIED</p>
+<p>├─ indoor_light: UNSPECIFIED</p>
+<p>└─ ambient_luminosity: None</p>
+</div></blockquote>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">sound_conditions</span></code></p>
+<blockquote class="last">
+<div><p>Description of audio conditions of the scene</p>
+<p>Default: <code class="xref py py-class docutils literal"><span class="pre">EnvironmentalSoundConditions</span></code></p>
+<blockquote>
+<div><p>├─ ambient_sound_reverberation: None</p>
+<p>└─ ambient_sound_level: None</p>
+</div></blockquote>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category">
+<em class="property">class </em><code class="descclassname">EnvironmentalDescription.</code><code class="descname">Category</code><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.INDOOR_BAR">
+<code class="descname">INDOOR_BAR</code><em class="property"> = 0</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.INDOOR_BAR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.INDOOR_HOUSE">
+<code class="descname">INDOOR_HOUSE</code><em class="property"> = 1</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.INDOOR_HOUSE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.INDOOR_OFFICE">
+<code class="descname">INDOOR_OFFICE</code><em class="property"> = 2</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.INDOOR_OFFICE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.INDOOR_RESTAURANT">
+<code class="descname">INDOOR_RESTAURANT</code><em class="property"> = 3</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.INDOOR_RESTAURANT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.INDOOR_SHOP">
+<code class="descname">INDOOR_SHOP</code><em class="property"> = 4</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.INDOOR_SHOP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.INDOOR_UNSPECIFIED">
+<code class="descname">INDOOR_UNSPECIFIED</code><em class="property"> = 99</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.INDOOR_UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.OUTDOOR_FOREST">
+<code class="descname">OUTDOOR_FOREST</code><em class="property"> = 100</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.OUTDOOR_FOREST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.OUTDOOR_MOUNTAIN">
+<code class="descname">OUTDOOR_MOUNTAIN</code><em class="property"> = 101</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.OUTDOOR_MOUNTAIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.OUTDOOR_SKY">
+<code class="descname">OUTDOOR_SKY</code><em class="property"> = 102</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.OUTDOOR_SKY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.OUTDOOR_STREET">
+<code class="descname">OUTDOOR_STREET</code><em class="property"> = 103</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.OUTDOOR_STREET" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.OUTDOOR_UNSPECIFIED">
+<code class="descname">OUTDOOR_UNSPECIFIED</code><em class="property"> = 199</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.OUTDOOR_UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.TRANSPORT_BOAT">
+<code class="descname">TRANSPORT_BOAT</code><em class="property"> = 201</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.TRANSPORT_BOAT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.TRANSPORT_BUS">
+<code class="descname">TRANSPORT_BUS</code><em class="property"> = 202</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.TRANSPORT_BUS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.TRANSPORT_CAR">
+<code class="descname">TRANSPORT_CAR</code><em class="property"> = 203</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.TRANSPORT_CAR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.TRANSPORT_PLANE">
+<code class="descname">TRANSPORT_PLANE</code><em class="property"> = 204</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.TRANSPORT_PLANE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.TRANSPORT_SUBWAY">
+<code class="descname">TRANSPORT_SUBWAY</code><em class="property"> = 205</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.TRANSPORT_SUBWAY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.TRANSPORT_TRAIN">
+<code class="descname">TRANSPORT_TRAIN</code><em class="property"> = 206</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.TRANSPORT_TRAIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.TRANSPORT_UNSPECIFIED">
+<code class="descname">TRANSPORT_UNSPECIFIED</code><em class="property"> = 299</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.TRANSPORT_UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalDescription.Category.UNSPECIFIED">
+<code class="descname">UNSPECIFIED</code><em class="property"> = 9999</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalDescription.Category.UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="qidata.metadata_objects.context.EnvironmentalLightConditions">
+<em class="property">class </em><code class="descclassname">qidata.metadata_objects.context.</code><code class="descname">EnvironmentalLightConditions</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalLightConditions" title="Permalink to this definition">¶</a></dt>
+<dd><p>EnvironmentalLightConditions (current version: 0.1):</p>
+<p>Description: Contains details about how the environment is enlightened</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">outdoor_light</span></code></p>
+<blockquote>
+<div><p>Type of light coming from the outside enlighting the scene</p>
+<p>Default: <code class="docutils literal"><span class="pre">UNSPECIFIED</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">indoor_light</span></code></p>
+<blockquote>
+<div><p>Type of light coming from the inside enlighting the scene</p>
+<p>Default: <code class="docutils literal"><span class="pre">UNSPECIFIED</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">ambient_luminosity</span></code></p>
+<blockquote class="last">
+<div><p>Ambient luminosity of the scene (lux)</p>
+<p>Default: <code class="docutils literal"><span class="pre">None</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="qidata.metadata_objects.context.EnvironmentalLightConditions.FromOutdoor">
+<em class="property">class </em><code class="descclassname">EnvironmentalLightConditions.</code><code class="descname">FromOutdoor</code><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalLightConditions.FromOutdoor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalLightConditions.FromOutdoor.CLOUDY_DAY_LIGHT">
+<code class="descname">CLOUDY_DAY_LIGHT</code><em class="property"> = 3</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalLightConditions.FromOutdoor.CLOUDY_DAY_LIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalLightConditions.FromOutdoor.NIGHT_LIGHT">
+<code class="descname">NIGHT_LIGHT</code><em class="property"> = 1</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalLightConditions.FromOutdoor.NIGHT_LIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalLightConditions.FromOutdoor.NO_OUTDOOR_LIGHT">
+<code class="descname">NO_OUTDOOR_LIGHT</code><em class="property"> = 0</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalLightConditions.FromOutdoor.NO_OUTDOOR_LIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalLightConditions.FromOutdoor.STREET_LIGHT_AT_NIGHT">
+<code class="descname">STREET_LIGHT_AT_NIGHT</code><em class="property"> = 2</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalLightConditions.FromOutdoor.STREET_LIGHT_AT_NIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalLightConditions.FromOutdoor.SUNNY_DAY_LIGHT">
+<code class="descname">SUNNY_DAY_LIGHT</code><em class="property"> = 4</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalLightConditions.FromOutdoor.SUNNY_DAY_LIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalLightConditions.FromOutdoor.UNSPECIFIED">
+<code class="descname">UNSPECIFIED</code><em class="property"> = 99</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalLightConditions.FromOutdoor.UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="qidata.metadata_objects.context.EnvironmentalLightConditions.FromIndoor">
+<em class="property">class </em><code class="descclassname">EnvironmentalLightConditions.</code><code class="descname">FromIndoor</code><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalLightConditions.FromIndoor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalLightConditions.FromIndoor.BRIGHT_LIGHT">
+<code class="descname">BRIGHT_LIGHT</code><em class="property"> = 3</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalLightConditions.FromIndoor.BRIGHT_LIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalLightConditions.FromIndoor.CANDLE_LIGHT">
+<code class="descname">CANDLE_LIGHT</code><em class="property"> = 1</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalLightConditions.FromIndoor.CANDLE_LIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalLightConditions.FromIndoor.DIM_LIGHT">
+<code class="descname">DIM_LIGHT</code><em class="property"> = 2</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalLightConditions.FromIndoor.DIM_LIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalLightConditions.FromIndoor.FLASH_LIGHT">
+<code class="descname">FLASH_LIGHT</code><em class="property"> = 4</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalLightConditions.FromIndoor.FLASH_LIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalLightConditions.FromIndoor.NO_INDOOR_LIGHT">
+<code class="descname">NO_INDOOR_LIGHT</code><em class="property"> = 0</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalLightConditions.FromIndoor.NO_INDOOR_LIGHT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="qidata.metadata_objects.context.EnvironmentalLightConditions.FromIndoor.UNSPECIFIED">
+<code class="descname">UNSPECIFIED</code><em class="property"> = 99</em><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalLightConditions.FromIndoor.UNSPECIFIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="qidata.metadata_objects.context.EnvironmentalSoundConditions">
+<em class="property">class </em><code class="descclassname">qidata.metadata_objects.context.</code><code class="descname">EnvironmentalSoundConditions</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#qidata.metadata_objects.context.EnvironmentalSoundConditions" title="Permalink to this definition">¶</a></dt>
+<dd><p>EnvironmentalSoundConditions (current version: 0.1):</p>
+<p>Description: Contains details about the sound environment</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><code class="docutils literal"><span class="pre">ambient_sound_reverberation</span></code></p>
+<blockquote>
+<div><p>Recording area reverberation time in seconds (RT60)</p>
+<p>Default: <code class="docutils literal"><span class="pre">None</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal"><span class="pre">ambient_sound_level</span></code></p>
+<blockquote class="last">
+<div><p>General sound level in the recording area in dB</p>
+<p>Default: <code class="docutils literal"><span class="pre">None</span></code></p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">QiData</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annotate.html">2. Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">3. Advanced usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. APPENDIX A: Context documentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="advanced.html" title="previous chapter">3. Advanced usage</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2017, Softbank Robotics Europe.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/context.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

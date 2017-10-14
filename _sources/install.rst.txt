@@ -18,17 +18,39 @@ might take a while.
 Basic installation
 ------------------
 
-If you want to use qidata through its graphical applications, run::
+For now, QiData can only be installed by source, and same goes for some of its
+dependencies.
 
-	pip install qidata_gui
+Install dependencies
+++++++++++++++++++++
 
-If you only need it to annotate data through Python scripts or to run tests,
-you can simply call::
+First, you need to install xmp::
 
-	pip install qidata
+	git clone https://github.com/aldebaran/xmp.git
+	cd xmp
+	python setup.py bdist_wheel
+	pip install dist/*
 
-And that's it. There is nothing more to do.
+Then, you need to install, by similar commands:
+ * `image.py <https://github.com/aldebaran/image.py>`_
+ * `qidata_devices <https://github.com/aldebaran/qidata_devices>`_
 
+Install qidata
+++++++++++++++
+
+First, install qidata main library package::
+
+	git clone https://github.com/aldebaran/qidata.git
+	cd qidata
+	python setup.py bdist_wheel
+	pip install dist/*
+
+Then, if you want to use qidata through its graphical applications, run::
+
+	git clone https://github.com/aldebaran/qidata_gui.git
+	cd qidata_gui
+	python setup.py bdist_wheel
+	pip install dist/*
 
 Troubleshooting
 ---------------

@@ -23,6 +23,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Basic usage" href="annotate.html" />
     <link rel="prev" title="Welcome to QiData’s documentation!" href="index.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -61,16 +62,43 @@ might take a while.</p>
 </div>
 <div class="section" id="basic-installation">
 <h2>1.2. Basic installation<a class="headerlink" href="#basic-installation" title="Permalink to this headline">¶</a></h2>
-<p>If you want to use qidata through its graphical applications, run:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">qidata_gui</span>
+<p>For now, QiData can only be installed by source, and same goes for some of its
+dependencies.</p>
+<div class="section" id="install-dependencies">
+<h3>1.2.1. Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline">¶</a></h3>
+<p>First, you need to install xmp:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">aldebaran</span><span class="o">/</span><span class="n">xmp</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">xmp</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">bdist_wheel</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">dist</span><span class="o">/*</span>
 </pre></div>
 </div>
-<p>If you only need it to annotate data through Python scripts or to run tests,
-you can simply call:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">qidata</span>
+<dl class="docutils">
+<dt>Then, you need to install, by similar commands:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://github.com/aldebaran/image.py">image.py</a></li>
+<li><a class="reference external" href="https://github.com/aldebaran/qidata_devices">qidata_devices</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="install-qidata">
+<h3>1.2.2. Install qidata<a class="headerlink" href="#install-qidata" title="Permalink to this headline">¶</a></h3>
+<p>First, install qidata main library package:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">aldebaran</span><span class="o">/</span><span class="n">qidata</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">qidata</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">bdist_wheel</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">dist</span><span class="o">/*</span>
 </pre></div>
 </div>
-<p>And that’s it. There is nothing more to do.</p>
+<p>Then, if you want to use qidata through its graphical applications, run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">aldebaran</span><span class="o">/</span><span class="n">qidata_gui</span><span class="o">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">qidata_gui</span>
+<span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">bdist_wheel</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">dist</span><span class="o">/*</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="troubleshooting">
 <h2>1.3. Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
@@ -108,6 +136,8 @@ Ubuntu version is 1.5). Check
 <li class="toctree-l2"><a class="reference internal" href="#troubleshooting">1.3. Troubleshooting</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="annotate.html">2. Basic usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="context.html">3. APPENDIX A: Context documentation</a></li>
 </ul>
 
 <div class="relations">
@@ -115,6 +145,7 @@ Ubuntu version is 1.5). Check
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="index.html" title="previous chapter">Welcome to QiData’s documentation!</a></li>
+      <li>Next: <a href="annotate.html" title="next chapter">2. Basic usage</a></li>
   </ul></li>
 </ul>
 </div>
